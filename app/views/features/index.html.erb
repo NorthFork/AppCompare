@@ -1,0 +1,29 @@
+<h1> <%=h @feature_category.name %> features</h1>
+
+<% if @feature_category.features.count > 0 %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @feature_category.features.each do |feature| %>
+    <tr>
+      <td><%= feature.name %></td>
+      <td><%= feature.description %></td>
+      <td><%= link_to 'Edit', edit_feature_category_feature_path(@feature_category, feature) %></td>
+      <td><%= link_to 'Destroy', [@feature_category, feature], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  <br />
+<% else %>
+  <p><%=h @feature_category.name %> does not have any features yet.</p>
+<% end %>
+
+<p>
+  <%= link_to 'New Feature', new_feature_category_feature_path(@feature_category) %>
+  <%= link_to 'Back', @feature_category %>
+</p>

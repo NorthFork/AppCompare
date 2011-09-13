@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  app_id: 1
+  product_id: 1
+  min_app_version_id: 1
+  max_app_version_id: 1
+  whoisusing: MyText
+
+two:
+  app_id: 1
+  product_id: 1
+  min_app_version_id: 1
+  max_app_version_id: 1
+  whoisusing: MyText

@@ -1,0 +1,33 @@
+<%= form_for([@app, @app_product]) do |f| %>
+  <% if @app_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app_product.errors.count, "error") %> prohibited this app_product from being saved:</h2>
+
+      <ul>
+      <% @app_product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= select(:app_product, :product_id, Product.find(:all, :order => 'name').collect {|t| [t.name, t.id]}, {:prompt => 'Product'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :min_app_version_id %><br />
+    <%= select(:app_product, :min_app_version_id, AppVersion.find(:all, :order => 'name').collect {|t| [t.name, t.id]}, {:prompt => 'Select version'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :max_app_version_id %><br />
+    <%= select(:app_product, :max_app_version_id, AppVersion.find(:all, :order => 'name').collect {|t| [t.name, t.id]}, {:prompt => 'Select version'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :whoisusing %><br />
+    <%= f.text_area :whoisusing %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

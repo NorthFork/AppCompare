@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  vendor_id: 1
+  name: MyString
+  description: MyString
+  URL: MyString
+
+two:
+  vendor_id: 1
+  name: MyString
+  description: MyString
+  URL: MyString

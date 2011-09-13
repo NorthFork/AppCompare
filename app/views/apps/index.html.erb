@@ -1,0 +1,33 @@
+<h1>Library Systems</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Url</th>
+    <th>Versions</th>
+    <th>Features</th>
+    <th>3rd Party Products</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @apps.each do |app| %>
+  <tr>
+    <td><%= app.name %></td>
+    <td><%= app.description %></td>
+    <td><%= app.URL %></td>
+    <td><%= app.app_versions.count %></td>
+    <td><%= app.app_features.count %></td>
+    <td><%= app.app_products.count %></td>
+    <td><%= link_to 'Show', app %></td>
+    <td><%= link_to 'Edit', edit_app_path(app) %></td>
+    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New App', new_app_path %>

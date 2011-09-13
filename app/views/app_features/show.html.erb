@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>App:</b>
+  <%= @app_feature.app.name %>
+</p>
+
+<p>
+  <b>Feature:</b>
+  <%= @app_feature.feature.name %>
+</p>
+
+<p>
+  <b>Feature status:</b>
+  <%= @app_feature.feature_status.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @app_feature.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @app_feature.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_app_feature_path(@app, @app_feature) %> |
+<%= link_to 'Back', app_app_features_path(@app) %>

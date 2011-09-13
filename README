@@ -1,0 +1,18 @@
+This is a Rails application for entering features of Evergreen and other 
+library software known as ILS (Integrated Library Systems).
+
+The library software is stored in the apps table.  Nested underneath 'apps' 
+are tables for features, versions, and products that can be used with (or
+as part of) the ILS.  Products are linked to the vendors that create or 
+make the product available.
+
+The development version of this rails code uses a SQLite3 database, test 
+and production use Postgresql databases.
+
+User authentication uses the ruby gem CanCan.
+
+For more information about configuring and running this application, contact bfeifarek@q.com
+
+
+
+

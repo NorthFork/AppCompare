@@ -1,0 +1,124 @@
+G:\_Upload\AppCompare>rake routes
+                        products GET    /products(.:format)
+                          {:action=>"index", :controller=>"products"}
+                              POST   /products(.:format)
+                          {:action=>"create", :controller=>"products"}
+                     new_product GET    /products/new(.:format)
+                          {:action=>"new", :controller=>"products"}
+                    edit_product GET    /products/:id/edit(.:format)
+                          {:action=>"edit", :controller=>"products"}
+                         product GET    /products/:id(.:format)
+                          {:action=>"show", :controller=>"products"}
+                              PUT    /products/:id(.:format)
+                          {:action=>"update", :controller=>"products"}
+                              DELETE /products/:id(.:format)
+                          {:action=>"destroy", :controller=>"products"}
+                      vendors GET    /vendors(.:format)
+                          {:action=>"index", :controller=>"vendors"}
+                              POST   /vendors(.:format)
+                          {:action=>"create", :controller=>"vendors"}
+                   new_vendor GET    /vendors/new(.:format)
+                          {:action=>"new", :controller=>"vendors"}
+                  edit_vendor GET    /vendors/:id/edit(.:format)
+                          {:action=>"edit", :controller=>"vendors"}
+                       vendor GET    /vendors/:id(.:format)
+                          {:action=>"show", :controller=>"vendors"}
+                              PUT    /vendors/:id(.:format)
+                          {:action=>"update", :controller=>"vendors"}
+                              DELETE /vendors/:id(.:format)
+                          {:action=>"destroy", :controller=>"vendors"}
+             feature_statuses GET    /feature_statuses(.:format)
+                          {:action=>"index", :controller=>"feature_statuses"}
+                              POST   /feature_statuses(.:format)
+                          {:action=>"create", :controller=>"feature_statuses"}
+           new_feature_status GET    /feature_statuses/new(.:format)
+                          {:action=>"new", :controller=>"feature_statuses"}
+          edit_feature_status GET    /feature_statuses/:id/edit(.:format)
+                          {:action=>"edit", :controller=>"feature_statuses"}
+               feature_status GET    /feature_statuses/:id(.:format)
+                          {:action=>"show", :controller=>"feature_statuses"}
+                              PUT    /feature_statuses/:id(.:format)
+                          {:action=>"update", :controller=>"feature_statuses"}
+                              DELETE /feature_statuses/:id(.:format)
+                          {:action=>"destroy", :controller=>"feature_statuses"}
+    feature_category_features GET    /feature_categories/:feature_category_id/features(.:format)          {:action=>"index", :controller=>"features"}
+                              POST   /feature_categories/:feature_category_id/features(.:format)          {:action=>"create", :controller=>"features"}
+ new_feature_category_feature GET    /feature_categories/:feature_category_id/features/new(.:format)      {:action=>"new", :controller=>"features"}
+edit_feature_category_feature GET    /feature_categories/:feature_category_id/features/:id/edit(.:format) {:action=>"edit", :controller=>"features"}
+     feature_category_feature GET    /feature_categories/:feature_category_id/features/:id(.:format)      {:action=>"show", :controller=>"features"}
+                              PUT    /feature_categories/:feature_category_id/features/:id(.:format)      {:action=>"update", :controller=>"features"}
+                              DELETE /feature_categories/:feature_category_id/features/:id(.:format)      {:action=>"destroy", :controller=>"features"}
+           feature_categories GET    /feature_categories(.:format)
+                          {:action=>"index", :controller=>"feature_categories"}
+                              POST   /feature_categories(.:format)
+                          {:action=>"create", :controller=>"feature_categories"}
+
+         new_feature_category GET    /feature_categories/new(.:format)
+                          {:action=>"new", :controller=>"feature_categories"}
+        edit_feature_category GET    /feature_categories/:id/edit(.:format)
+                          {:action=>"edit", :controller=>"feature_categories"}
+             feature_category GET    /feature_categories/:id(.:format)
+                          {:action=>"show", :controller=>"feature_categories"}
+                              PUT    /feature_categories/:id(.:format)
+                          {:action=>"update", :controller=>"feature_categories"}
+
+                              DELETE /feature_categories/:id(.:format)
+                          {:action=>"destroy", :controller=>"feature_categories"}
+             app_app_versions GET    /apps/:app_id/app_versions(.:format)
+                          {:action=>"index", :controller=>"app_versions"}
+                              POST   /apps/:app_id/app_versions(.:format)
+                          {:action=>"create", :controller=>"app_versions"}
+          new_app_app_version GET    /apps/:app_id/app_versions/new(.:format)
+                          {:action=>"new", :controller=>"app_versions"}
+         edit_app_app_version GET    /apps/:app_id/app_versions/:id/edit(.:format)                        {:action=>"edit", :controller=>"app_versions"}
+              app_app_version GET    /apps/:app_id/app_versions/:id(.:format)
+                          {:action=>"show", :controller=>"app_versions"}
+                              PUT    /apps/:app_id/app_versions/:id(.:format)
+                          {:action=>"update", :controller=>"app_versions"}
+                              DELETE /apps/:app_id/app_versions/:id(.:format)
+                          {:action=>"destroy", :controller=>"app_versions"}
+             app_app_features GET    /apps/:app_id/app_features(.:format)
+                          {:action=>"index", :controller=>"app_features"}
+                              POST   /apps/:app_id/app_features(.:format)
+                          {:action=>"create", :controller=>"app_features"}
+          new_app_app_feature GET    /apps/:app_id/app_features/new(.:format)
+                          {:action=>"new", :controller=>"app_features"}
+         edit_app_app_feature GET    /apps/:app_id/app_features/:id/edit(.:format)                        {:action=>"edit", :controller=>"app_features"}
+              app_app_feature GET    /apps/:app_id/app_features/:id(.:format)
+                          {:action=>"show", :controller=>"app_features"}
+                              PUT    /apps/:app_id/app_features/:id(.:format)
+                          {:action=>"update", :controller=>"app_features"}
+                              DELETE /apps/:app_id/app_features/:id(.:format)
+                          {:action=>"destroy", :controller=>"app_features"}
+                app_app_products GET    /apps/:app_id/app_products(.:format)
+                          {:action=>"index", :controller=>"app_products"}
+                              POST   /apps/:app_id/app_products(.:format)
+                          {:action=>"create", :controller=>"app_products"}
+             new_app_app_product GET    /apps/:app_id/app_products/new(.:format)
+                          {:action=>"new", :controller=>"app_products"}
+            edit_app_app_product GET    /apps/:app_id/app_products/:id/edit(.:format)
+                          {:action=>"edit", :controller=>"app_products"}
+                 app_app_product GET    /apps/:app_id/app_products/:id(.:format)
+                          {:action=>"show", :controller=>"app_products"}
+                              PUT    /apps/:app_id/app_products/:id(.:format)
+                          {:action=>"update", :controller=>"app_products"}
+                              DELETE /apps/:app_id/app_products/:id(.:format)
+                          {:action=>"destroy", :controller=>"app_products"}
+                         apps GET    /apps(.:format)
+                          {:action=>"index", :controller=>"apps"}
+                              POST   /apps(.:format)
+                          {:action=>"create", :controller=>"apps"}
+                      new_app GET    /apps/new(.:format)
+                          {:action=>"new", :controller=>"apps"}
+                     edit_app GET    /apps/:id/edit(.:format)
+                          {:action=>"edit", :controller=>"apps"}
+                          app GET    /apps/:id(.:format)
+                          {:action=>"show", :controller=>"apps"}
+                              PUT    /apps/:id(.:format)
+                          {:action=>"update", :controller=>"apps"}
+                              DELETE /apps/:id(.:format)
+                          {:action=>"destroy", :controller=>"apps"}
+                   home_index GET    /home/index(.:format)
+                          {:controller=>"home", :action=>"index"}
+                         root        /(.:format)
+                          {:controller=>"home", :action=>"index"}

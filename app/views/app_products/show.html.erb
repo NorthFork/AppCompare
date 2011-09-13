@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>App:</b>
+  <%= @app_product.app.name %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @app_product.product.name %>
+</p>
+
+<p>
+  <b>Minimum App Version Supported:</b>
+  <%= @app_product.min_app_version ? @app_product.min_app_version.name : 'Not specified' %>
+</p>
+
+<p>
+  <b>Maximum App Version Supported:</b>
+  <%= @app_product.max_app_version ? @app_product.max_app_version.name : 'Not specified' %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @app_product.product.vendor.name %>
+</p>
+
+
+<p>
+  <b>Who is using:</b>
+  <%= @app_product.whoisusing %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_app_product_path(@app, @app_product) %> |
+<%= link_to 'Back', app_app_products_path(@app) %>

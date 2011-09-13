@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @app.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @app.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @app.URL %>
+</p>
+
+<b>Versions</b> &nbsp; &nbsp; <%= link_to 'Edit', app_app_versions_path(@app) %>
+<% if @app.app_versions.count > 0 %>
+  <table>
+    <tr>
+      <th>Version</th>
+      <th>Description</th>
+    </tr>
+    <% @app.app_versions.each do |v| %>
+      <tr>
+        <td> <%=h v.name %> </td>
+        <td> <%=h v.description %> </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> <%=h @app.name %> does not have any versions yet. </p>
+<% end %>
+
+
+<b>Features</b> &nbsp; &nbsp; <%= link_to 'Edit', app_app_features_path(@app) %>
+<% if @app.app_features.count > 0 %>
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+    <% @app.app_features.each do |f| %>
+      <tr>
+        <td> <%=h f.feature.name %> </td>
+        <td> <%=h f.feature.description %> </td>
+        <td> <%=h f.feature_status.name %> </td>
+        <td> <%=h f.name %> </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> <%=h @app.name %> does not have any features yet. </p>
+<% end %>
+
+<b>Third Party Products</b> &nbsp; &nbsp; <%= link_to 'Edit', app_app_products_path(@app) %>
+<% if @app.app_products.count > 0 %>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Vendor</th>
+      <th>Description</th>
+      <th>Who is using</th>
+    </tr>
+    <% @app.app_products.each do |f| %>
+      <tr>
+        <td> <%=h f.product.name %> </td>
+        <td> <%=h f.product.vendor.name %> </td>
+        <td> <%=h f.product.description %> </td>
+        <td> <%=h f.whoisusing %> </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> <%=h @app.name %> does not have any 3rd party products yet. </p>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>
