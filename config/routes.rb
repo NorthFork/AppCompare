@@ -1,4 +1,6 @@
 AppCompare::Application.routes.draw do
+  resources :sources
+
  # resources :app_products
 
   resources :products
