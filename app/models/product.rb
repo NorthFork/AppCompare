@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   belongs_to :app_version, :class_name => 'min_app_version_id', :foreign_key => 'app_version_id'
   belongs_to :app_version, :class_name => 'max_app_version_id', :foreign_key => 'app_version_id'
   validates :name, :presence => true,
-	:length => {:minimum => 3, :maximum => 30}
-  validates :vendor_id, :presence => true
+    :length => {:minimum => 3, :maximum => 30}
+  validates_uniqueness_of :name, :case_sensitive => false
+  validates_presence_of :vendor
 end

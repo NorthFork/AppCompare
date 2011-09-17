@@ -3,6 +3,7 @@ class Feature < ActiveRecord::Base
   has_many :app_features
   has_many :apps, :through => :app_features
   validates :name, :presence => true,
-	:length => {:minimum => 3, :maximum => 30}
-  validates :feature_category_id, :presence => true
+	:length => {:minimum => 3, :maximum => 30} , :unique => true
+  validates_presence_of :feature_category
+  validates_uniqueness_of :name, :case_sensitive => false
 end

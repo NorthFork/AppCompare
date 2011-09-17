@@ -1,27 +1,53 @@
-<h1>Feature Categories</h1>
+<h1>Features</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Features</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @feature_categories.count > 0 %>
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Features</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @feature_categories.each do |feature_category| %>
-  <tr>
-    <td><%= feature_category.name %></td>
-    <td><%= feature_category.description %></td>
-    <td><%= feature_category.features.count %></td>
-    <td><%= link_to 'Show', feature_category %></td>
-    <td><%= link_to 'Edit', edit_feature_category_path(feature_category) %></td>
-    <td><%= link_to 'Destroy', feature_category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <% @feature_categories.each do |feature_category| %>
+    <tr>
+      <td><%= feature_category.name %></td>
+      <td><%= feature_category.description %></td>
+      <td><%= feature_category.features.count %></td>
+      <td><%= link_to 'Show', feature_category %></td>
+      <td><%= link_to 'Edit', edit_feature_category_path(feature_category) %></td>
+      <td><%= link_to 'Destroy', feature_category, :confirm => 'Are you sure you want to remove ' + feature_category.name + '?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <p> There are not any Feature Categories yet.  Please click the "New Feature Category" link to add one.</p>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Feature category', new_feature_category_path %>
+<%= link_to 'New Feature Category', new_feature_category_path %>
+
+<h2>Feature Statuses in Applications</h2>
+
+<% if @feature_statuses.count > 0 %>
+  <table>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+
+  <% @feature_statuses.each do |feature_status| %>
+    <tr>
+      <td><%= feature_status.name %></td>
+      <td><%= feature_status.description %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <p> There are not any Feature Status settings yet.  Please click the "Edit Feature Statuses" link to add one.</p>
+<% end %>
+<%= link_to 'Edit Feature Statuses', feature_statuses_path %>
+

@@ -3,6 +3,7 @@ class FeatureCategoriesController < ApplicationController
   # GET /feature_categories.xml
   def index
     @feature_categories = FeatureCategory.all
+    @feature_statuses = FeatureStatus.all  # brian so can display list of statuses on index page
 
     respond_to do |format|
       format.html # index.html.erb
