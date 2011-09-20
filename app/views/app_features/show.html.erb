@@ -20,6 +20,11 @@
   <%= @app_feature.description %>
 </p>
 
+<p>
+  <b>Information Source:</b>
+  <%= @app_feature.source ? @app_feature.source.name : 'Not specified' %>
+</p>
+
 
 <%= link_to 'Edit', edit_app_app_feature_path(@app, @app_feature) %> |
 <%= link_to 'Back', app_app_features_path(@app) %>

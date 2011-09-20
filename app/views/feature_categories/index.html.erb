@@ -49,5 +49,28 @@
 <% else %>
   <p> There are not any Feature Status settings yet.  Please click the "Edit Feature Statuses" link to add one.</p>
 <% end %>
+<br />
 <%= link_to 'Edit Feature Statuses', feature_statuses_path %>
+
+<h2>Feature Statuses in Applications</h2>
+
+<% if @sources.count > 0 %>
+  <table>
+    <tr>
+      <th>Source</th>
+      <th>Description</th>
+    </tr>
+
+  <% @sources.each do |s| %>
+    <tr>
+      <td><%= s.name %></td>
+      <td><%= s.description %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <p> There are not any Feature Sources yet.  Please click the "Edit Feature Sources" link to add one.</p>
+<% end %>
+<br />
+<%= link_to 'Edit Feature Sources', sources_path %>
 

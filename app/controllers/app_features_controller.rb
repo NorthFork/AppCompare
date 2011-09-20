@@ -5,6 +5,7 @@ class AppFeaturesController < ApplicationController
   before_filter :get_app
   before_filter :fetch_features, :only => [:edit, :update, :new, :create]
   before_filter :fetch_feature_statuses, :only => [:edit, :update, :new, :create]
+  before_filter :fetch_sources, :only => [:edit, :update, :new, :create]
 
   def index
     @app_features = @app.app_features
@@ -108,5 +109,9 @@ class AppFeaturesController < ApplicationController
 
   def fetch_feature_statuses
     @feature_statuses = FeatureStatus.all.collect {|f| [ f.name, f.id ] }
+  end
+
+  def fetch_sources
+    @sources = Source.all.collect {|f| [ f.name, f.id ] }
   end
 end

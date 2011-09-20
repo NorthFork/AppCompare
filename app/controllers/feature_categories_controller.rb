@@ -4,6 +4,7 @@ class FeatureCategoriesController < ApplicationController
   def index
     @feature_categories = FeatureCategory.all
     @feature_statuses = FeatureStatus.all  # brian so can display list of statuses on index page
+    @sources = Source.all
 
     respond_to do |format|
       format.html # index.html.erb
