@@ -1,0 +1,41 @@
+<%= form_for(@app_feature) do |f| %>
+  <% if @app_feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app_feature.errors.count, "error") %> prohibited this app_feature from being saved:</h2>
+
+      <ul>
+      <% @app_feature.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :app_id %><br />
+    <%= f.number_field :app_id %>
+  </div>
+  <div class="field">
+    <%= f.label :feature_id %><br />
+    <%= f.number_field :feature_id %>
+  </div>
+  <div class="field">
+    <%= f.label :feature_status_id %><br />
+    <%= f.number_field :feature_status_id %>
+  </div>
+  <div class="field">
+    <%= f.label :source_id %><br />
+    <%= f.number_field :source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

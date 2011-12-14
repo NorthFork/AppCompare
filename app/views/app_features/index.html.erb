@@ -1,0 +1,33 @@
+<h1>Listing app_features</h1>
+
+<table>
+  <tr>
+    <th>App</th>
+    <th>Feature</th>
+    <th>Feature status</th>
+    <th>Source</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @app_features.each do |app_feature| %>
+  <tr>
+    <td><%= app_feature.app_id %></td>
+    <td><%= app_feature.feature_id %></td>
+    <td><%= app_feature.feature_status_id %></td>
+    <td><%= app_feature.source_id %></td>
+    <td><%= app_feature.name %></td>
+    <td><%= app_feature.description %></td>
+    <td><%= link_to 'Show', app_feature %></td>
+    <td><%= link_to 'Edit', edit_app_feature_path(app_feature) %></td>
+    <td><%= link_to 'Destroy', app_feature, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New App feature', new_app_feature_path %>

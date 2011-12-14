@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>App:</b>
+  <%= @app_product.app_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @app_product.product_id %>
+</p>
+
+<p>
+  <b>Min appversion:</b>
+  <%= @app_product.min_appversion_id %>
+</p>
+
+<p>
+  <b>Max appversion:</b>
+  <%= @app_product.max_appversion_id %>
+</p>
+
+<p>
+  <b>Whoisusing:</b>
+  <%= @app_product.whoisusing %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_product_path(@app_product) %> |
+<%= link_to 'Back', app_products_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>App:</b>
+  <%= @app_version.app_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @app_version.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @app_version.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_version_path(@app_version) %> |
+<%= link_to 'Back', app_versions_path %>

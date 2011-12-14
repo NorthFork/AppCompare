@@ -1,0 +1,2 @@
+module AppFeaturesHelper
+end

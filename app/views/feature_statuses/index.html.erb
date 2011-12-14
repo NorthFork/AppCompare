@@ -1,0 +1,25 @@
+<h1>Listing feature_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @feature_statuses.each do |feature_status| %>
+  <tr>
+    <td><%= feature_status.name %></td>
+    <td><%= feature_status.description %></td>
+    <td><%= link_to 'Show', feature_status %></td>
+    <td><%= link_to 'Edit', edit_feature_status_path(feature_status) %></td>
+    <td><%= link_to 'Destroy', feature_status, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Feature status', new_feature_status_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>App:</b>
+  <%= @app_feature.app_id %>
+</p>
+
+<p>
+  <b>Feature:</b>
+  <%= @app_feature.feature_id %>
+</p>
+
+<p>
+  <b>Feature status:</b>
+  <%= @app_feature.feature_status_id %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @app_feature.source_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @app_feature.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @app_feature.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_feature_path(@app_feature) %> |
+<%= link_to 'Back', app_features_path %>
