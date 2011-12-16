@@ -2,22 +2,27 @@
 
 <p>
   <b>App:</b>
-  <%= @app_product.app_id %>
+  <%= @app_product.app.name %>
 </p>
 
 <p>
   <b>Product:</b>
-  <%= @app_product.product_id %>
+  <%= @app_product.product.name %>
 </p>
 
 <p>
-  <b>Min appversion:</b>
-  <%= @app_product.min_appversion_id %>
+  <b>Minimum App Version Supported:</b>
+  <%= @app_product.min_appversion ? @app_product.min_appversion.name : 'Not specified' %>
 </p>
 
 <p>
-  <b>Max appversion:</b>
-  <%= @app_product.max_appversion_id %>
+  <b>Maximum App Version Supported:</b>
+  <%= @app_product.max_appversion ? @app_product.max_appversion.name : 'Not specified' %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @app_product.product.vendor.name %>
 </p>
 
 <p>
@@ -26,5 +31,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_app_product_path(@app_product) %> |
-<%= link_to 'Back', app_products_path %>
+<%= link_to 'Edit', edit_app_app_product_path(@app, @app_product) %> |
+<%= link_to 'Back', app_app_products_path(@app) %>

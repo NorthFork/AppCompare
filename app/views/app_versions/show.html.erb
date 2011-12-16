@@ -2,7 +2,7 @@
 
 <p>
   <b>App:</b>
-  <%= @app_version.app_id %>
+  <%= @app.name %>
 </p>
 
 <p>
@@ -16,5 +16,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_app_version_path(@app_version) %> |
-<%= link_to 'Back', app_versions_path %>
+<%= link_to 'Edit', edit_app_app_version_path(@app, @app_version) %> |
+<%= link_to 'Back', app_app_versions_path(@app) %>

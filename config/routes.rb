@@ -1,23 +1,33 @@
 AppComp::Application.routes.draw do
-  resources :app_products
+ # resources :app_products
 
   resources :products
 
   resources :vendors
 
-  resources :app_features
+ # resources :app_features
 
   resources :sources
 
   resources :feature_statuses
 
-  resources :features
+ # resources :features
 
-  resources :feature_categories
+ #old way- resources :feature_categories, :has_many => [:features]
+  resources :feature_categories do
+    resources :features
+  end
 
-  resources :app_versions
+ # resources :app_versions
 
-  resources :apps
+ # resources :feature_categories
+
+ #old way- resources :apps, :has_many => [:app_versions, :app_features, :app_products]
+  resources :apps do
+    resources :app_versions
+    resources :app_features
+    resources :app_products
+  end
 
   get "home/index"
 

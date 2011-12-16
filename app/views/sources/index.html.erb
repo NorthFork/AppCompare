@@ -1,11 +1,10 @@
-<h1>Listing sources</h1>
+<h1>Feature Sources</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Source</th>
     <th>Description</th>
-    <th>Url</th>
-    <th></th>
+    <th>URL</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,9 +14,8 @@
     <td><%= source.name %></td>
     <td><%= source.description %></td>
     <td><%= source.url %></td>
-    <td><%= link_to 'Show', source %></td>
     <td><%= link_to 'Edit', edit_source_path(source) %></td>
-    <td><%= link_to 'Destroy', source, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure you wish to remove ' + source.name + '?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -25,3 +23,4 @@
 <br />
 
 <%= link_to 'New Source', new_source_path %>
+<%= link_to 'Back to Features', feature_categories_path %>

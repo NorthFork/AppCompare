@@ -3,6 +3,8 @@ class FeatureCategoriesController < ApplicationController
   # GET /feature_categories.json
   def index
     @feature_categories = FeatureCategory.all
+    @feature_statuses = FeatureStatus.all  # brian so can display list of statuses on index page
+    @sources = Source.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +46,8 @@ class FeatureCategoriesController < ApplicationController
 
     respond_to do |format|
       if @feature_category.save
-        format.html { redirect_to @feature_category, notice: 'Feature category was successfully created.' }
+        format.html { redirect_to(feature_categories_url, :notice => 'Feature category was successfully created.') }
+       # format.html { redirect_to @feature_category, notice: 'Feature category was successfully created.' }
         format.json { render json: @feature_category, status: :created, location: @feature_category }
       else
         format.html { render action: "new" }
@@ -60,7 +63,8 @@ class FeatureCategoriesController < ApplicationController
 
     respond_to do |format|
       if @feature_category.update_attributes(params[:feature_category])
-        format.html { redirect_to @feature_category, notice: 'Feature category was successfully updated.' }
+        format.html { redirect_to(feature_categories_url, :notice => 'Feature category was successfully updated.') }
+       # format.html { redirect_to @feature_category, notice: 'Feature category was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

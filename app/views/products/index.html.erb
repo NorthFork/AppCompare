@@ -1,4 +1,4 @@
-<h1>Listing products</h1>
+<h1>Third Party Products</h1>
 
 <table>
   <tr>
@@ -13,13 +13,13 @@
 
 <% @products.each do |product| %>
   <tr>
-    <td><%= product.vendor_id %></td>
+    <td><%= product.vendor.name %></td>
     <td><%= product.name %></td>
     <td><%= product.description %></td>
     <td><%= product.url %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -27,3 +27,6 @@
 <br />
 
 <%= link_to 'New Product', new_product_path %>
+<br />
+<br />
+<%= link_to 'Edit Vendors', vendors_path %>

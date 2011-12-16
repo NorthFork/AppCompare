@@ -2,7 +2,7 @@
 
 <p>
   <b>Feature category:</b>
-  <%= @feature.feature_category_id %>
+  <%= @feature.feature_category.name %>
 </p>
 
 <p>
@@ -16,5 +16,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_feature_path(@feature) %> |
-<%= link_to 'Back', features_path %>
+<%= link_to 'Edit', edit_feature_category_feature_path(@feature_category, @feature) %> |
+<%= link_to 'Back', feature_category_features_path(@feature_category) %>

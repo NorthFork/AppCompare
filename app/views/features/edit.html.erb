@@ -1,6 +1,5 @@
-<h1>Editing feature</h1>
+<h1>Editing <%=h @feature_category.name %> Feature</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @feature %> |
-<%= link_to 'Back', features_path %>
+<%= link_to 'Back', feature_category_path(@feature_category) %>

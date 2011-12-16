@@ -1,4 +1,4 @@
-<h1>Listing vendors</h1>
+<h1>Vendors (of 3rd party products)</h1>
 
 <table>
   <tr>
@@ -21,7 +21,7 @@
     <td><%= vendor.contact %></td>
     <td><%= link_to 'Show', vendor %></td>
     <td><%= link_to 'Edit', edit_vendor_path(vendor) %></td>
-    <td><%= link_to 'Destroy', vendor, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', vendor, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -29,3 +29,6 @@
 <br />
 
 <%= link_to 'New Vendor', new_vendor_path %>
+<br />
+<br />
+<%= link_to 'Show Products', products_path %>

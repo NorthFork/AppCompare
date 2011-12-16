@@ -1,4 +1,4 @@
-<%= form_for(@app_feature) do |f| %>
+<%= form_for([@app, @app_feature]) do |f| %>
   <% if @app_feature.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@app_feature.errors.count, "error") %> prohibited this app_feature from being saved:</h2>
@@ -12,28 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :app_id %><br />
-    <%= f.number_field :app_id %>
-  </div>
-  <div class="field">
     <%= f.label :feature_id %><br />
-    <%= f.number_field :feature_id %>
+    <%= f.select :feature_id, @features %>
   </div>
   <div class="field">
     <%= f.label :feature_status_id %><br />
-    <%= f.number_field :feature_status_id %>
-  </div>
-  <div class="field">
-    <%= f.label :source_id %><br />
-    <%= f.number_field :source_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= select(:app_feature, :feature_status_id, @feature_statuses, {:prompt => 'Status'}) %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :feature_source_id %><br />
+    <%= select(:app_feature, :source_id, @sources, {:prompt => 'Source'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
+
+  before_filter :fetch_vendors, :only => [:edit, :update, :new, :create]
+  
   def index
     @products = Product.all
 
@@ -80,4 +83,9 @@ class ProductsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  private
+  def fetch_vendors
+    @vendors = Vendor.all.collect {|v| [v.name, v.id]}
+  end 
 end
