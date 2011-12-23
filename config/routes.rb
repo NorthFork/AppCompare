@@ -1,4 +1,6 @@
 AppComp::Application.routes.draw do
+  resources :users
+
  # resources :app_products
 
   resources :products

@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214060319) do
+ActiveRecord::Schema.define(:version => 20111216230030) do
 
   create_table "app_features", :force => true do |t|
     t.integer  "app_id"
     t.integer  "feature_id"
     t.integer  "feature_status_id"
-    t.integer  "source_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "source_id"
   end
 
   create_table "app_products", :force => true do |t|
@@ -85,6 +85,18 @@ ActiveRecord::Schema.define(:version => 20111214060319) do
     t.string   "name"
     t.string   "description"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_digest"
+    t.string   "auth_token"
+    t.boolean  "is_admin"
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
