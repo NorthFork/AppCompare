@@ -1,4 +1,10 @@
 AppComp::Application.routes.draw do
+  # brian copied from Railscast example
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+ 
+  resources :sessions
+  
   resources :users
 
  # resources :app_products

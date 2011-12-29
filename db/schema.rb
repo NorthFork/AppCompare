@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(:version => 20111216230030) do
     t.integer  "app_id"
     t.integer  "feature_id"
     t.integer  "feature_status_id"
+    t.integer  "source_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "source_id"
   end
 
   create_table "app_products", :force => true do |t|

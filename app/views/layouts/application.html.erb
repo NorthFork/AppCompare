@@ -13,7 +13,11 @@
       <%= render 'partials/nav' %>
     </header>
     <div id="user_nav">
-      <%= link_to "Register", '' %>
+      <% if current_user %>
+        <%= link_to "Logout", session, :confirm => 'Are you sure you wish to log out?', :method => 'logout'  %>
+      <% else %>
+        <%= link_to "Login", new_session_path %>
+      <% end %>
     </div>
 
     <div class="notifications">
