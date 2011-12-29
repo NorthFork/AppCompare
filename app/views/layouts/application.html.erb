@@ -14,9 +14,9 @@
     </header>
     <div id="user_nav">
       <% if current_user %>
-        <%= link_to "Logout", session, :confirm => 'Are you sure you wish to log out?', :method => 'logout'  %>
+        <%= link_to "Logout " + current_user.first_name, '/logout' %>
       <% else %>
-        <%= link_to "Login", new_session_path %>
+        <%= link_to "Login", '/login' %>
       <% end %>
     </div>
 

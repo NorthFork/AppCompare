@@ -38,6 +38,8 @@ AppComp::Application.routes.draw do
   end
 
   get "home/index"
+  
+#  match "/home/index" => "home#index", :via => :post  #get around no route matches [POST] "/home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
