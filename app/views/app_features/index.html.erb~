@@ -1,0 +1,39 @@
+<h1><%=h @app.name %> Features</h1>
+
+<% if @app.app_features.count > 0 %>
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Feature status</th>
+    <th>Description</th>
+    <th>Source</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @app_features.each do |app_feature| %>
+  <tr>
+      <td><%= app_feature.feature.name %></td>
+      <td><%= app_feature.feature_status.name %></td>
+      <td><%= app_feature.description %></td>
+      <td><%= app_feature.source ? app_feature.source.name : 'Not specified' %></td>
+      <td><%= link_to 'Show', [@app, app_feature] %></td>
+      <% if can? :update, app_feature %>
+        <td><%= link_to 'Edit', edit_app_app_feature_path(@app, app_feature) %></td>
+        <td><%= link_to 'Destroy', [@app, app_feature], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% else %>
+  <p><%=h @app.name %> does not have any features yet.</p>
+<% end %>
+<p>
+<% if can? :create, @app_feature %>
+  <%= link_to 'New Feature', new_app_app_feature_path(@app) %> |
+<% end %>
+<%= link_to 'Back', @app %>
+</p>

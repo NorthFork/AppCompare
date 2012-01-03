@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Feature Category</h1>
+<p>
+  <b>Name:</b>
+  <%= @feature_category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @feature_category.description %>
+</p>
+
+<h2>Features</h2>
+<% if @feature_category.features.count > 0 %>
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @feature_category.features.each do |f| %>
+      <tr>
+        <td> <%=h f.name %> </td>
+        <td> <%=h f.description %> </td>
+        <td> <%= link_to 'Edit', edit_feature_category_feature_path(@feature_category, f) %> </td>
+        <td> <%= link_to 'Destroy', feature_category_feature_path(@feature_category, f), :confirm => 'Are you sure you wish to remove ' + f.name + '?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> <%=h @feature_category.name %> does not have any features yet. </p>
+<% end %>
+<%= link_to 'Add new feature', new_feature_category_feature_path(@feature_category) %>
+<br/>
+<br/>
+<%= link_to 'Edit Category', edit_feature_category_path(@feature_category) %> |
+<%= link_to 'Back', feature_categories_path %>
