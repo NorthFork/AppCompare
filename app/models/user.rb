@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :case_sensitive => false
   
  # attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
-
+  
+ # ROLES = %w[admin edit]
+  
   def full_name
     "#{first_name} #{last_name}"
   end

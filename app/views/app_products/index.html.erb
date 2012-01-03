@@ -21,8 +21,12 @@
       <td><%= app_product.product.vendor.name %></td>
     <td><%= app_product.whoisusing %></td>
       <td><%= link_to 'Show', [@app, app_product] %></td>
-      <td><%= link_to 'Edit', edit_app_app_product_path(@app, app_product) %></td>
-      <td><%= link_to 'Destroy', [@app, app_product], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if can? :update, app_product %>
+        <td><%= link_to 'Edit', edit_app_app_product_path(@app, app_product) %></td>
+      <% end %>
+      <% if can? :destroy, app_product %>
+        <td><%= link_to 'Destroy', [@app, app_product], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
   </tr>
 <% end %>
 </table>
@@ -33,6 +37,8 @@
   <p><%=h @app.name %> does not have any third party products yet.</p>
 <% end %>
 <p>
+<% if can? :create, @app_product %>
   <%= link_to 'New Product', new_app_app_product_path(@app) %> |
+<% end %>
   <%= link_to 'Back', @app %>
 </p>

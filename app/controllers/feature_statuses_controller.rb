@@ -1,6 +1,9 @@
 class FeatureStatusesController < ApplicationController
   # GET /feature_statuses
   # GET /feature_statuses.json
+
+  load_and_authorize_resource  #cancan make sure direct access to edit/new page allow
+  
   def index
     @feature_statuses = FeatureStatus.all
 

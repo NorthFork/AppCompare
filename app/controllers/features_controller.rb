@@ -1,6 +1,9 @@
 class FeaturesController < ApplicationController
   # GET /features
   # GET /features.json
+
+  load_and_authorize_resource  #cancan make sure direct access to edit/new page allow
+  
   before_filter :get_feature_category
 
   def index

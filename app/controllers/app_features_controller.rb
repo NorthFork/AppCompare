@@ -1,6 +1,9 @@
 class AppFeaturesController < ApplicationController
   # GET /app_features
   # GET /app_features.json
+  
+  load_and_authorize_resource  #cancan make sure direct access to edit/new page allow
+  
   before_filter :get_app
   before_filter :fetch_features, :only => [:edit, :update, :new, :create]
   before_filter :fetch_feature_statuses, :only => [:edit, :update, :new, :create]

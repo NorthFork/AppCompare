@@ -19,8 +19,12 @@
       <td><%= app_feature.description %></td>
       <td><%= app_feature.source ? app_feature.source.name : 'Not specified' %></td>
       <td><%= link_to 'Show', [@app, app_feature] %></td>
-      <td><%= link_to 'Edit', edit_app_app_feature_path(@app, app_feature) %></td>
-      <td><%= link_to 'Destroy', [@app, app_feature], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if can? :update, app_feature %>
+        <td><%= link_to 'Edit', edit_app_app_feature_path(@app, app_feature) %></td>
+      <% end %>
+      <% if can? :destroy, app_feature %>
+        <td><%= link_to 'Destroy', [@app, app_feature], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
   </tr>
 <% end %>
 </table>
@@ -30,6 +34,8 @@
   <p><%=h @app.name %> does not have any features yet.</p>
 <% end %>
 <p>
-<%= link_to 'New Feature', new_app_app_feature_path(@app) %> |
-  <%= link_to 'Back', @app %>
+<% if can? :create, @app_feature %>
+  <%= link_to 'New Feature', new_app_app_feature_path(@app) %> |
+<% end %>
+<%= link_to 'Back', @app %>
 </p>

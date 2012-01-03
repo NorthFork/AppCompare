@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
 
+  load_and_authorize_resource  #cancan make sure direct access to edit/new page allow
+  
   before_filter :fetch_vendors, :only => [:edit, :update, :new, :create]
   
   def index

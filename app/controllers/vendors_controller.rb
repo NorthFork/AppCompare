@@ -1,6 +1,9 @@
 class VendorsController < ApplicationController
   # GET /vendors
   # GET /vendors.json
+
+  load_and_authorize_resource  #cancan make sure direct access to edit/new page allow
+  
   def index
     @vendors = Vendor.all
 

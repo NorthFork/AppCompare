@@ -1,6 +1,9 @@
 class FeatureCategoriesController < ApplicationController
   # GET /feature_categories
   # GET /feature_categories.json
+
+  load_and_authorize_resource  #cancan make sure direct access to edit/new page allow
+  
   def index
     @feature_categories = FeatureCategory.all
     @feature_statuses = FeatureStatus.all  # brian so can display list of statuses on index page

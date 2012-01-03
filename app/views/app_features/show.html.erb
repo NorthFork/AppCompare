@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>App:</b>
   <%= @app_feature.app.name %>
@@ -25,6 +23,8 @@
   <%= @app_feature.source ? @app_feature.source.name : 'Not specified' %>
 </p>
 
+<% if can? :update, @app_feature %>
+  <%= link_to 'Edit', edit_app_app_feature_path(@app, @app_feature) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_app_app_feature_path(@app, @app_feature) %> |
 <%= link_to 'Back', app_app_features_path(@app) %>
