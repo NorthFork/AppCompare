@@ -77,6 +77,7 @@
 <% end %>
 
 
-
-<%= link_to 'Edit', edit_app_path(@app) %> |
+<% if can? :update, @app %>
+  <%= link_to 'Edit', edit_app_path(@app) %> |
+<% end %>
 <%= link_to 'Back', apps_path %>

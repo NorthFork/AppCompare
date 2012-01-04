@@ -1,34 +1,44 @@
 <h1>Features</h1>
 
 <% if @feature_categories.count > 0 %>
-<table>
-  <tr>
+  <table>
+    <tr>
       <th>Category</th>
-    <th>Description</th>
+      <th>Description</th>
       <th>Features</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @feature_categories.each do |feature_category| %>
-  <tr>
-    <td><%= feature_category.name %></td>
-    <td><%= feature_category.description %></td>
+  <% @feature_categories.each do |feature_category| %>
+    <tr>
+      <td><%= feature_category.name %></td>
+      <td><%= feature_category.description %></td>
       <td><%= feature_category.features.count %></td>
-    <td><%= link_to 'Show', feature_category %></td>
-    <td><%= link_to 'Edit', edit_feature_category_path(feature_category) %></td>
-      <td><%= link_to 'Destroy', feature_category, :confirm => 'Are you sure you want to remove ' + feature_category.name + '?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+      <td><%= link_to 'Show', feature_category %></td>
+      <% if can? :update, feature_category %>
+        <td><%= link_to 'Edit', edit_feature_category_path(feature_category) %></td>
+      <% end %>
+      <% if can? :destroy, feature_category %>
+        <td><%= link_to 'Destroy', feature_category, :confirm => 'Are you sure you want to remove ' + feature_category.name + '?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <% if can? :create, @feature_category %>
+    <%= link_to 'New Feature category', new_feature_category_path %>
+  <% end %>
 <% else %>
-  <p> There are not any Feature Categories yet.  Please click the "New Feature Category" link to add one.</p>
+  <% if can? :create, @feature_category %>
+    <p> There are not any Feature Categories yet.  Please click the "New Feature Category" link to add one.</p>
+    <%= link_to 'New Feature category', new_feature_category_path %>
+  <% else %>
+    <p> There are not any Feature Categories yet. </p>
+  <% end %>
 <% end %>
 
 <br />
-
-<%= link_to 'New Feature category', new_feature_category_path %>
 
 <h2>Feature Statuses in Applications</h2>
 
@@ -38,19 +48,25 @@
       <th>Status</th>
       <th>Description</th>
     </tr>
-
-  <% @feature_statuses.each do |feature_status| %>
-    <tr>
-      <td><%= feature_status.name %></td>
-      <td><%= feature_status.description %></td>
-    </tr>
-  <% end %>
+    <% @feature_statuses.each do |feature_status| %>
+      <tr>
+        <td><%= feature_status.name %></td>
+        <td><%= feature_status.description %></td>
+      </tr>
+    <% end %>
   </table>
+  <% if can? :create, @feature_status %>
+    <%= link_to 'Edit Feature Statuses', feature_statuses_path %>
+  <% end %>
 <% else %>
-  <p> There are not any Feature Status settings yet.  Please click the "Edit Feature Statuses" link to add one.</p>
+  <% if can? :create, @feature_status %>
+    <p> There are not any Feature Status settings yet.  Please click the "Edit Feature Statuses" link to add one.</p>
+    <%= link_to 'Edit Feature Statuses', feature_statuses_path %>
+  <% else %>
+    <p> There are not any Feature Status settings yet.</p>
+  <% end %>
 <% end %>
 <br />
-<%= link_to 'Edit Feature Statuses', feature_statuses_path %>
 
 <h2>Feature Sources in Applications</h2>
 
@@ -61,16 +77,23 @@
       <th>Description</th>
     </tr>
 
-  <% @sources.each do |s| %>
-    <tr>
-      <td><%= s.name %></td>
-      <td><%= s.description %></td>
-    </tr>
-  <% end %>
+    <% @sources.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.description %></td>
+      </tr>
+    <% end %>
   </table>
+  <% if can? :create, @source %>
+    <%= link_to 'Edit Feature Sources', sources_path %>
+  <% end %>
 <% else %>
-  <p> There are not any Feature Sources yet.  Please click the "Edit Feature Sources" link to add one.</p>
+  <% if can? :create, @source %>
+    <p> There are not any Feature Sources yet.  Please click the "Edit Feature Sources" link to add one.</p>
+    <%= link_to 'Edit Feature Sources', sources_path %>
+  <% else %>
+    <p> There are not any Feature Sources yet.</p>
+  <% end %>
 <% end %>
 <br />
-<%= link_to 'Edit Feature Sources', sources_path %>
 

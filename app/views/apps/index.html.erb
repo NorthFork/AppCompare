@@ -22,12 +22,19 @@
     <td><%= app.app_features.count %></td>
     <td><%= app.app_products.count %></td>
     <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if can? :update, app %>
+      <td><%= link_to 'Edit', edit_app_path(app) %></td>
+    <% end %>
+    <% if can? :destroy, app %>
+      <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New App', new_app_path %>
+<% if can? :create, @app %>
+  <%= link_to 'New App', new_app_path %>
+<% end %>
+

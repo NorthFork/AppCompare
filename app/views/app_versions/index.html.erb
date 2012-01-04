@@ -15,8 +15,12 @@
     <td><%= app_version.name %></td>
     <td><%= app_version.description %></td>
       <td><%= link_to 'Show', [@app, app_version] %></td>
-      <td><%= link_to 'Edit', edit_app_app_version_path(@app, app_version) %></td>
-      <td><%= link_to 'Destroy', [@app, app_version], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if can? :update, app_version %>
+        <td><%= link_to 'Edit', edit_app_app_version_path(@app, app_version) %></td>
+      <% end %>
+      <% if can? :destroy, app_version %>
+        <td><%= link_to 'Destroy', [@app, app_version], :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
   </tr>
 <% end %>
 </table>
@@ -26,6 +30,8 @@
   <p><%=h @app.name %> does not have any versions yet.</p>
 <% end %>
 <p>
+<% if can? :create, @app_version %>
   <%= link_to 'New App version', new_app_app_version_path(@app) %> |
+<% end %>
   <%= link_to 'Back', @app %>
 </p>

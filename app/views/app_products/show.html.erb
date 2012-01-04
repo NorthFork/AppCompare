@@ -10,12 +10,12 @@
 
 <p>
   <b>Minimum App Version Supported:</b>
-  <%= @app_product.min_appversion ? @app_product.min_appversion.name : 'Not specified' %>
+  <%= @app_product.min_app_version ? @app_product.min_app_version.name : 'Not specified' %>
 </p>
 
 <p>
   <b>Maximum App Version Supported:</b>
-  <%= @app_product.max_appversion ? @app_product.max_appversion.name : 'Not specified' %>
+  <%= @app_product.max_app_version ? @app_product.max_app_version.name : 'Not specified' %>
 </p>
 
 <p>
@@ -29,5 +29,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_app_app_product_path(@app, @app_product) %> |
+<% if can? :update, @app_product %>
+  <%= link_to 'Edit', edit_app_app_product_path(@app, @app_product) %> |
+<% end %>
 <%= link_to 'Back', app_app_products_path(@app) %>

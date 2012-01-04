@@ -14,5 +14,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_app_app_version_path(@app, @app_version) %> |
+<% if can? :update, @app_version %>
+  <%= link_to 'Edit', edit_app_app_version_path(@app, @app_version) %> |
+<% end %>
 <%= link_to 'Back', app_app_versions_path(@app) %>
