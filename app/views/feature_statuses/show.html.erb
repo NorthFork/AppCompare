@@ -9,5 +9,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_feature_status_path(@feature_status) %> |
+<% if can? :update, @feature_status %>
+  <%= link_to 'Edit', edit_feature_status_path(@feature_status) %> |
+<% end %>
 <%= link_to 'Back', feature_statuses_path %>

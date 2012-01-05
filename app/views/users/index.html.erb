@@ -1,27 +1,35 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Is admin</th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @users.count > 0 %>
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Is admin</th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.is_admin %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.is_admin %></td>
+        <% if can? :update, user %>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% end %>
+        <% if can? :destroy, user %>
+          <td><%= link_to 'Destroy', user, confirm: 'Are you sure you want to remove ' + user.email +'?', method: :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> There are no users entered in the system. </p>
 <% end %>
-</table>
-
 <br />
-
-<%= link_to 'New User', new_user_path %>
+<% if can? :create, @user %>
+  <%= link_to 'New User', new_user_path %>
+<% end %>

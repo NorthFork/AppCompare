@@ -18,6 +18,7 @@
   <%= @product.url %>
 </p>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<% if can? :update, @product %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Back', products_path %>

@@ -1,5 +1,6 @@
 <h1>Feature Statuses</h1>
 
+<% if @feature_statuses.count > 0 %>
 <table>
   <tr>
     <th>Name</th>
@@ -8,17 +9,25 @@
     <th></th>
   </tr>
 
-<% @feature_statuses.each do |feature_status| %>
-  <tr>
-    <td><%= feature_status.name %></td>
-    <td><%= feature_status.description %></td>
-    <td><%= link_to 'Edit', edit_feature_status_path(feature_status) %></td>
-    <td><%= link_to 'Destroy', feature_status, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @feature_statuses.each do |feature_status| %>
+    <tr>
+      <td><%= feature_status.name %></td>
+      <td><%= feature_status.description %></td>
+      <% if can? :update, feature_status %>
+        <td><%= link_to 'Edit', edit_feature_status_path(feature_status) %></td>
+      <% end %>
+      <% if can? :destroy, feature_status %>
+      <td><%= link_to 'Destroy', feature_status, :confirm => 'Are you sure you want to remove ' + feature_status.name + '?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
-
+<% else %>
+  <p>There are no feature statuses yet.</p>
+<% end %>
 <br />
 
-<%= link_to 'New Feature Status', new_feature_status_path %>
+<% if can? :create, @feature_status %>
+  <%= link_to 'New Feature Status', new_feature_status_path %>
+<% end %>
 <%= link_to 'Back to Features', feature_categories_path %>

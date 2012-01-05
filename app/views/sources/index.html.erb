@@ -1,26 +1,36 @@
 <h1>Feature Sources</h1>
 
-<table>
-  <tr>
-    <th>Source</th>
-    <th>Description</th>
-    <th>URL</th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @sources.count > 0 %>
+  <table>
+    <tr>
+      <th>Source</th>
+      <th>Description</th>
+      <th>URL</th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @sources.each do |source| %>
-  <tr>
-    <td><%= source.name %></td>
-    <td><%= source.description %></td>
-    <td><%= source.url %></td>
-    <td><%= link_to 'Edit', edit_source_path(source) %></td>
-    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure you wish to remove ' + source.name + '?', :method => :delete %></td>
-  </tr>
+    <% @sources.each do |source| %>
+      <tr>
+        <td><%= source.name %></td>
+        <td><%= source.description %></td>
+        <td><%= source.url %></td>
+        <% if can? :update, source %>
+          <td><%= link_to 'Edit', edit_source_path(source) %></td>
+        <% end %>
+        <% if can? :destroy, source %>
+          <td><%= link_to 'Destroy', source, :confirm => 'Are you sure you want to remove ' + source.name + '?', :method => :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no sources yet.</p>
 <% end %>
-</table>
-
 <br />
 
-<%= link_to 'New Source', new_source_path %>
+<% if can? :create, @source %>
+  <%= link_to 'New Source', new_source_path %>
+<% end %>
+<br />
 <%= link_to 'Back to Features', feature_categories_path %>

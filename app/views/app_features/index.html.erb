@@ -23,7 +23,7 @@
         <td><%= link_to 'Edit', edit_app_app_feature_path(@app, app_feature) %></td>
       <% end %>
       <% if can? :destroy, app_feature %>
-        <td><%= link_to 'Destroy', [@app, app_feature], :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Destroy', [@app, app_feature], :confirm => 'Are you sure you want to remove ' + app_feature.feature.name + '?', :method => :delete %></td>
       <% end %>
   </tr>
 <% end %>

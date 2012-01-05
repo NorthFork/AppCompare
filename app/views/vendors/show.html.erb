@@ -23,6 +23,7 @@
   <%= @vendor.contact %>
 </p>
 
-
-<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<% if can? :update, @vendor %>
+  <%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<% end %>
 <%= link_to 'Back', vendors_path %>

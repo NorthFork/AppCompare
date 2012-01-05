@@ -29,9 +29,9 @@
 <% else %>
   <p><%=h @app.name %> does not have any versions yet.</p>
 <% end %>
-<p>
+
 <% if can? :create, @app_version %>
   <%= link_to 'New App version', new_app_app_version_path(@app) %> |
 <% end %>
-  <%= link_to 'Back', @app %>
-</p>
+<%= link_to 'Back', @app %>
+

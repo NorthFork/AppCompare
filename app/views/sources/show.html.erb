@@ -14,5 +14,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_source_path(@source) %> |
+<% if can? :update, @source %>
+  <%= link_to 'Edit', edit_source_path(@source) %> |
+<% end %>
 <%= link_to 'Back', sources_path %>

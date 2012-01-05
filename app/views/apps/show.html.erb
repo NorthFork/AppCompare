@@ -30,7 +30,7 @@
 <% else %>
   <p> <%=h @app.name %> does not have any versions yet. </p>
 <% end %>
-
+<br />
 
 <b>Features</b> &nbsp; &nbsp; <%= link_to 'Edit', app_app_features_path(@app) %>
 <% if @app.app_features.count > 0 %>
@@ -53,6 +53,7 @@
 <% else %>
   <p> <%=h @app.name %> does not have any features yet. </p>
 <% end %>
+<br />
 
 <b>Third Party Products</b> &nbsp; &nbsp; <%= link_to 'Edit', app_app_products_path(@app) %>
 <% if @app.app_products.count > 0 %>
@@ -75,6 +76,7 @@
 <% else %>
   <p> <%=h @app.name %> does not have any 3rd party products yet. </p>
 <% end %>
+<br />
 
 
 <% if can? :update, @app %>

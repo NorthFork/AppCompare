@@ -1,34 +1,43 @@
 <h1>Vendors (of 3rd party products)</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Url</th>
-    <th>Phone</th>
-    <th>Contact</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @vendors.count > 0 %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Phone</th>
+      <th>Contact</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @vendors.each do |vendor| %>
-  <tr>
-    <td><%= vendor.name %></td>
-    <td><%= vendor.description %></td>
-    <td><%= vendor.url %></td>
-    <td><%= vendor.phone %></td>
-    <td><%= vendor.contact %></td>
-    <td><%= link_to 'Show', vendor %></td>
-    <td><%= link_to 'Edit', edit_vendor_path(vendor) %></td>
-    <td><%= link_to 'Destroy', vendor, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <% @vendors.each do |vendor| %>
+      <tr>
+        <td><%= vendor.name %></td>
+        <td><%= vendor.description %></td>
+        <td><%= vendor.url %></td>
+        <td><%= vendor.phone %></td>
+        <td><%= vendor.contact %></td>
+        <td><%= link_to 'Show', vendor %></td>
+        <% if can? :update, vendor %>
+          <td><%= link_to 'Edit', edit_vendor_path(vendor) %></td>
+        <% end %>
+        <% if can? :destroy, vendor %>
+          <td><%= link_to 'Destroy', vendor, :confirm => 'Are you sure you want to remove ' + vendor.name + '?', :method => :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no vendors in the system yet.</p>
 <% end %>
-</table>
-
 <br />
 
-<%= link_to 'New Vendor', new_vendor_path %>
+<% if can? :create, @vendor %>
+  <%= link_to 'New Vendor', new_vendor_path %>
+<% end %>
 <br />
 <br />
 <%= link_to 'Show Products', products_path %>
