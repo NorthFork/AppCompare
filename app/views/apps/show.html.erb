@@ -39,14 +39,14 @@
       <th>Feature</th>
       <th>Description</th>
       <th>Status</th>
-      <th>Notes</th>
+      <th>Application Notes</th>
     </tr>
     <% @app.app_features.each do |f| %>
       <tr>
         <td> <%=h f.feature.name %> </td>
         <td> <%=h f.feature.description %> </td>
-        <td> <%=h f.feature_status.name %> </td>
-        <td> <%=h f.name %> </td>
+        <td> <%=h f.feature_status ? f.feature_status.name : 'Not specified' %> </td>
+        <td> <%=h f.description %> </td>
       </tr>
     <% end %>
   </table>

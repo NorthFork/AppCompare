@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216230030) do
+ActiveRecord::Schema.define(:version => 20120112213909) do
 
   create_table "app_features", :force => true do |t|
     t.integer  "app_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20111216230030) do
     t.integer  "feature_status_id"
     t.integer  "source_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description",       :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,9 +42,27 @@ ActiveRecord::Schema.define(:version => 20111216230030) do
     t.datetime "updated_at"
   end
 
+# Could not dump table "appdata" because of following StandardError
+#   Unknown type '' for column 'FunctionalArea'
+
+  create_table "appload", :force => true do |t|
+    t.string  "FunctionalArea", :limit => 30
+    t.string  "FeatureID",      :limit => 10
+    t.string  "inEvergreen",    :limit => 3
+    t.string  "inKoha",         :limit => 3
+    t.string  "FeatureName",    :limit => 200
+    t.text    "FeatureDesc"
+    t.text    "FeatureEG"
+    t.text    "FeatureKoha"
+    t.string  "Source",         :limit => 30
+    t.string  "Ref",            :limit => 30
+    t.string  "Notes",          :limit => 10
+    t.integer "cat_id"
+  end
+
   create_table "apps", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20111216230030) do
   create_table "features", :force => true do |t|
     t.integer  "feature_category_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description",         :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,7 +93,7 @@ ActiveRecord::Schema.define(:version => 20111216230030) do
   create_table "products", :force => true do |t|
     t.integer  "vendor_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -103,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20111216230030) do
 
   create_table "vendors", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.string   "url"
     t.string   "phone"
     t.string   "contact"

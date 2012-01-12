@@ -6,6 +6,7 @@
     <th>Feature</th>
     <th>Feature status</th>
     <th>Description</th>
+    <th>Application Notes</th>
     <th>Source</th>
     <th></th>
     <th></th>
@@ -15,7 +16,8 @@
 <% @app_features.each do |app_feature| %>
   <tr>
       <td><%= app_feature.feature.name %></td>
-      <td><%= app_feature.feature_status.name %></td>
+      <td><%= app_feature.feature_status ? app_feature.feature_status.name : 'Not specified' %></td>
+      <td><%= app_feature.feature.description %></td>
       <td><%= app_feature.description %></td>
       <td><%= app_feature.source ? app_feature.source.name : 'Not specified' %></td>
       <td><%= link_to 'Show', [@app, app_feature] %></td>
