@@ -11,7 +11,7 @@
   </tr>
 
 <% @app_versions.each do |app_version| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") -%>">
     <td><%= app_version.name %></td>
     <td><%= app_version.description %></td>
       <td><%= link_to 'Show', [@app, app_version] %></td>

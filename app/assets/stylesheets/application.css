@@ -6,3 +6,13 @@
  *= require_tree . 
 */
 
+.odd {
+  padding: 2px;
+  background-color: #F9F9F9;
+}
+
+.even {
+  padding: 2px;
+  background-color: #FFFFFF;
+}
+

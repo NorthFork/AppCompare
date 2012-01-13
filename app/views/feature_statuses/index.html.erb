@@ -10,7 +10,7 @@
   </tr>
 
   <% @feature_statuses.each do |feature_status| %>
-    <tr>
+    <tr class="<%= cycle("odd", "even") -%>">
       <td><%= feature_status.name %></td>
       <td><%= feature_status.description %></td>
       <% if can? :update, feature_status %>

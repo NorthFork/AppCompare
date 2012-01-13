@@ -8,6 +8,7 @@ class Ability
     elsif (user.is_admin == true)
       can :manage, :all 
     elsif not(user.email.empty?)
+      can :read, :all
       can :edit, :create, :all
     else
       can :read, :all

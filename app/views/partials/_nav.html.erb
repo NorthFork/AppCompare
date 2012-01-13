@@ -3,6 +3,9 @@
     <%= link_to 'Library Systems', apps_path %>
     <%= link_to 'Features', feature_categories_path %>
     <%= link_to '3rd Party Products', products_path %>
+    <% if can? :manage, :users %>
+      <%= link_to 'Users', users_path %>
+    <% end %>
   </nav>
 
 

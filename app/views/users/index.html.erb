@@ -12,7 +12,7 @@
     </tr>
 
     <% @users.each do |user| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td><%= user.email %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
@@ -21,7 +21,7 @@
           <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <% end %>
         <% if can? :destroy, user %>
-          <td><%= link_to 'Destroy', user, confirm: 'Are you sure you want to remove ' + user.email +'?', method: :delete %></td>
+          <td><%= link_to 'Destroy', user, :confirm => ('Are you sure you want to remove ' + user.email + ' ?'), :method => :delete %></td>
         <% end %>
       </tr>
     <% end %>

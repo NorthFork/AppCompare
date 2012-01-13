@@ -37,7 +37,8 @@ AppComp::Application.routes.draw do
     resources :app_products
   end
 
-  get "home/index"
+ # get "home/index"
+ # get :apps  #default route
   
 #  match "/home/index" => "home#index", :via => :post  #get around no route matches [POST] "/home/index"
 
@@ -91,7 +92,9 @@ AppComp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-root :to => 'home#index'
+#root :to => 'home#index'
+root :to => 'apps#index'
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

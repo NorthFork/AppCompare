@@ -42,7 +42,7 @@
       <th>Application Notes</th>
     </tr>
     <% @app.app_features.each do |f| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td> <%=h f.feature.name %> </td>
         <td> <%=h f.feature.description %> </td>
         <td> <%=h f.feature_status ? f.feature_status.name : 'Not specified' %> </td>

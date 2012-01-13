@@ -12,7 +12,7 @@
     </tr>
 
   <% @feature_categories.each do |feature_category| %>
-    <tr>
+    <tr class="<%= cycle("odd", "even") -%>">
       <td><%= feature_category.name %></td>
       <td><%= feature_category.description %></td>
       <td><%= feature_category.features.count %></td>
@@ -49,7 +49,7 @@
       <th>Description</th>
     </tr>
     <% @feature_statuses.each do |feature_status| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td><%= feature_status.name %></td>
         <td><%= feature_status.description %></td>
       </tr>
@@ -78,7 +78,7 @@
     </tr>
 
     <% @sources.each do |s| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td><%= s.name %></td>
         <td><%= s.description %></td>
       </tr>

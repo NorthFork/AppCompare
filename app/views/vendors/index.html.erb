@@ -14,7 +14,7 @@
     </tr>
 
     <% @vendors.each do |vendor| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td><%= vendor.name %></td>
         <td><%= vendor.description %></td>
         <td><%= vendor.url %></td>

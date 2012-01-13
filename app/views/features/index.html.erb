@@ -10,7 +10,7 @@
     </tr>
 
     <% @feature_category.features.each do |feature| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td><%= feature.name %></td>
         <td><%= feature.description %></td>
         <% if can? :update, feature %>

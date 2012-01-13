@@ -15,7 +15,7 @@
     </tr>
 
     <% @apps.each do |app| %>
-      <tr>
+      <tr class="<%= cycle("odd", "even") -%>">
         <td><%= app.name %></td>
         <td><%= app.description %></td>
         <td><%= app.url %></td>

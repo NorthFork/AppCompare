@@ -14,7 +14,7 @@
   </tr>
 
 <% @app_products.each do |app_product| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") -%>">
       <td><%= app_product.product.name %></td>
       <td><%= app_product.min_app_version ? app_product.min_app_version.name : 'N/A' %></td>
       <td><%= app_product.max_app_version ? app_product.max_app_version.name : 'N/A' %></td>

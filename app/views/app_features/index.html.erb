@@ -14,7 +14,7 @@
   </tr>
 
 <% @app_features.each do |app_feature| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") -%>">
       <td><%= app_feature.feature.name %></td>
       <td><%= app_feature.feature_status ? app_feature.feature_status.name : 'Not specified' %></td>
       <td><%= app_feature.feature.description %></td>
